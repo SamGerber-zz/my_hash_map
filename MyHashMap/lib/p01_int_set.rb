@@ -65,7 +65,6 @@ class IntSet
 end
 
 class ResizingIntSet
-  # attr_accessor :count
   attr_reader :count
 
   def initialize(num_buckets = 20)
@@ -104,7 +103,7 @@ class ResizingIntSet
   end
 
   def resize!
-    old_store = store.dup
+    old_store = store
     self.store = Array.new(num_buckets * 2) { Array.new }
     self.count = 0
     old_store.each do |bucket|
