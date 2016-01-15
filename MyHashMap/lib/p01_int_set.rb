@@ -37,18 +37,26 @@ class IntSet
   end
 
   def insert(num)
+    return false if include?(num)
+    self[num] << num
   end
 
   def remove(num)
+    return false if !include?(num)
+    self[num].delete(num)
+    true
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
+  attr_reader :store
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    store[num % store.length]
   end
 
   def num_buckets
