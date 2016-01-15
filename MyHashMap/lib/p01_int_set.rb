@@ -5,19 +5,24 @@ class MaxIntSet
 
   def insert(num)
     validate!(num)
+    store[num] = true
   end
 
   def remove(num)
     validate!(num)
+    store[num] = false
   end
 
   def include?(num)
     validate!(num)
+    store[num]
   end
 
   private
+  attr_reader :store
 
   def is_valid?(num)
+    num < store.length && num > 0
   end
 
   def validate!(num)
