@@ -32,7 +32,7 @@ describe HashMap do
     it "overwrites any existing value for the given key" do
       hash[:one] = 1
       hash[:one] = "one"
-
+      
       expect(hash[:one]).to eq("one")
     end
 
