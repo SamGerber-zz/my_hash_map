@@ -67,9 +67,11 @@ class LinkedList
       if link.key == key
         if link == head
           self.head = link.next
+          link.next.prev = nil
           link.next = nil
         elsif link == tail
           self.tail = link.prev
+          link.prev.next = nil
           link.prev = nil
         else
           link.prev.next = link.next
